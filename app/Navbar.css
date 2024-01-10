@@ -1,0 +1,45 @@
+nav
+{
+    width: auto;
+    height: 100px;
+    background-color: var(--nav-color);
+    border-color: var(--foreground-rgb);
+    border-radius: 20px;
+    border-width: 2px;
+    margin: 1vw;
+    padding: 3vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+ul{
+    width: 50vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 20px;
+}
+
+li{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+li:hover
+{
+    border-color: var(--foreground-rgb);
+    border-radius: 5px;
+    border-width: 2px;
+
+}
+ul button
+{
+    width: 500px;
+    max-width: 200px;
+    padding-inline: 5px;
+    height: 60px;
+}
