@@ -1,8 +1,8 @@
 import "./globals.css"
-import "./SpotifyHandler"
-import "./LogInButton"
-import LogInButton from "@/app/LogInButton";
-import {SpotifyHandler} from "@/app/SpotifyHandler";
+import "./util/SpotifyHandler"
+import "./components/LogInButton"
+import LogInButton from "@/app/components/LogInButton";
+import {SpotifyHandler} from "@/app/util/SpotifyHandler";
 export default async function Home() {
 
   return (

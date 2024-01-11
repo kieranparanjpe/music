@@ -1,7 +1,7 @@
 'use client'
 
 import {useSearchParams} from "next/navigation";
-import {SpotifyHandler} from "@/app/SpotifyHandler";
+import {SpotifyHandler} from "@/app/util/SpotifyHandler";
 import {useEffect, useState} from "react";
 
 export default function GetUrlParams()
