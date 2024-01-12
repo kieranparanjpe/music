@@ -5,7 +5,8 @@ import {getServerSession, NextAuthOptions} from "next-auth";
 const scopes = [
     "user-read-private",
     "user-read-email",
-    "user-read-currently-playing"
+    "user-read-currently-playing",
+    "user-read-top"
 ].join(",");
 
 const params = {
@@ -28,13 +29,16 @@ async function refreshAccessToken(token : string)
             body: params
         })
     const data = await response.json();
+    console.log("refresh token: " + token.refreshToken);
+    console.log(data);
     return {
         accessToken: data["access_token"],
         refreshToken: data["refresh_token"] ?? token.refreshToken,
         accessTokenExpires: Date.now() + data["expires_in"] * 1000
     }
 }
-const authOptions : NextAuthOptions = {
+const
+    authOptions : NextAuthOptions = {
     providers: [
         SpotifyProvider({
             clientId: process.env.SPOTIFY_ID ?? '',
@@ -59,7 +63,7 @@ const authOptions : NextAuthOptions = {
                 return token
             }
 
-            if(Date.now() < token.accessTokenExpires * 1000)
+            if(Date.now() < token.accessTokenExpires)
                 return token
 
             return refreshAccessToken(token)

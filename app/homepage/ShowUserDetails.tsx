@@ -1,23 +1,31 @@
-import {getServerSession} from "next-auth";
+import {getServerSession, Session} from "next-auth";
 import {redirect} from "next/navigation";
 import {auth} from "@/app/util/auth";
+import Spotify from "next-auth/providers/spotify";
+import SpotifyManager from "@/app/util/SpotifyManager";
+import {getBiggestImage} from "@/app/util/Interfaces/SpotifyProfile";
+import LogInButton from "@/app/components/LogInButton";
 
 export default async function ShowUserDetails()
 {
-    //const session = await getServerSession();
-    const session = await auth();
-
-    console.log(session.accessToken);
+    const session : Session | null = await auth();
 
     if(!session)
-    {
         redirect("/");
-    }
 
-    //console.log("session token: " + session.user.name);
-
+    const profile = await SpotifyManager.getProfile(session.accessToken);
 
     return(
-        <p>access token: {session.accessToken}</p>
+        <div>
+            <div className={"flex justify-items-start items-center"}>
+                <div className={"aspect-square h-40"}>
+                    <div className={"rounded-full p-1 w-full h-full "} style={{borderRadius: "30%", backgroundColor: "var(--foreground-rgb)"}}>
+                        <img className={"w-full h-full"} style={{borderRadius: "30%"}} src={getBiggestImage(profile.images).url}></img></div></div>
+                <h1 className={"p-4"}>Hey, {profile.display_name}</h1>
+                <div className={"flex-grow h-full flex justify-end items-center"}>
+                    <LogInButton scale={"1.5rem"}/>
+                </div>
+            </div>
+        </div>
     )
 }

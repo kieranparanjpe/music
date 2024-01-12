@@ -1,3 +1,4 @@
+/**@Deprecated**/
 export class SpotifyHandler {
 
     static clientId = "11350c577ada4e1a956e4acf008e932a";
@@ -56,6 +57,7 @@ export class SpotifyHandler {
 
 
     static async fetchProfile() {
+        console.log("fetch");
         const result = await fetch("https://api.spotify.com/v1/me", {
             method: "GET", headers: {Authorization: `Bearer ${SpotifyHandler.accessToken}`}
         });

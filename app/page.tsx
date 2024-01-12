@@ -15,7 +15,7 @@ export default async function Home() {
        <br/>
        <br/>
        <div className={"flex justify-center"}>
-            <LogInButton />
+            <LogInButton scale={"inherit"}/>
        </div>
    </div>
   )

@@ -1,17 +1,17 @@
 'use client'
-
 import "../globals.css";
 import "./Navbar.css"
+import {redirect} from "next/navigation";
 export default function Navbar()
 {
     return(
         <nav>
             <h2>Spotify Stats</h2>
             <ul>
-                <button onClick={() => {location.href='./homepage'}}><li><p>Home</p></li></button>
-                <button><li><p>link 1</p></li></button>
-                <button><li><p>link 1</p></li></button>
-                <button onClick={() => {location.href='../account'}}><li><p>Account</p></li></button>
+                <button onClick={() => {window.location='/homepage'}}><li><p>Home</p></li></button>
+                <button onClick={() => {window.location='/stats'}}><li><p>Stats</p></li></button>
+                <button><li><p>Download Playlists</p></li></button>
+                {/*<button onClick={() => {location.href='../account'}}><li><p>Account</p></li></button>*/}
 
             </ul>
         </nav>

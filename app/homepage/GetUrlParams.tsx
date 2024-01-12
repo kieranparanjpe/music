@@ -4,6 +4,7 @@ import {useSearchParams} from "next/navigation";
 import {SpotifyHandler} from "@/app/util/SpotifyHandler";
 import {useEffect, useState} from "react";
 
+/*@Deprecated*/
 export default function GetUrlParams()
 {
     const params = useSearchParams();

@@ -4,6 +4,8 @@ import './globals.css'
 import Navbar from "@/app/components/Navbar";
 import {getServerSession} from "next-auth";
 import {AuthProvider} from "@/app/util/SessionHandler";
+import {auth} from "@/app/util/auth";
+import {SpotifyHandler} from "@/app/util/SpotifyHandler";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,7 +21,7 @@ export default async function RootLayout({
 }) {
 
     const session = await getServerSession();
-  return (
+    return (
     <html lang="en">
       <body className={inter.className}>
       <AuthProvider session={session}>
