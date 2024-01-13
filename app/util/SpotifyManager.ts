@@ -4,6 +4,9 @@ import {SpotifyProfile1} from "@/app/util/Interfaces/SpotifyProfile";
 import {SpotifyHandler} from "@/app/util/SpotifyHandler";
 import {SpotifyTopArtists} from "@/app/util/Interfaces/SpotifyTopArtists";
 import {SpotifyTopSongs} from "@/app/util/Interfaces/SpotifyTopSongs";
+import {SpotifyPlaylistTracks} from "@/app/util/Interfaces/SpotifyPlaylistTracks";
+import {SpotifyPlaylists} from "@/app/util/Interfaces/SpotifyPlaylists";
+import {SpotifyArtist} from "@/app/util/Interfaces/SpotifyArtist";
 
 export default class SpotifyManager
 {
@@ -45,6 +48,36 @@ export default class SpotifyManager
         });
 
         return await resultA.json() as SpotifyTopSongs;
+    }
+
+    static async getPlaylists(token: string) : Promise<SpotifyPlaylists> {
+        const params = new URLSearchParams();
+        params.append("limit", "50");
+        params.append("offset", "0");
+        const resultA = await fetch(`https://api.spotify.com/v1/me/playlists?${params.toString()}`, {
+            method: "GET", headers: {Authorization: `Bearer ${token}`}
+        });
+
+        return await resultA.json() as SpotifyPlaylists;
+    }
+
+    static async getPlaylistItems(token: string, href: string) : Promise<SpotifyPlaylistTracks> {
+        const params = new URLSearchParams();
+        const resultA = await fetch(href, {
+            method: "GET", headers: {Authorization: `Bearer ${token}`}
+        });
+
+        return await resultA.json() as SpotifyPlaylistTracks;
+    }
+
+    static async getArtists(token: string, ids: string) : Promise<SpotifyArtist> {
+        const params = new URLSearchParams();
+        params.append("ids", ids);
+        const resultA = await fetch(`https://api.spotify.com/v1/artists?${params.toString()}`, {
+            method: "GET", headers: {Authorization: `Bearer ${token}`}
+        });
+
+        return await resultA.json() as SpotifyArtist;
     }
 
     static async getSongDetails(id : string) {
