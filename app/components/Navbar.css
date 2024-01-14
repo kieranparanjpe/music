@@ -43,3 +43,12 @@ ul button
     padding-inline: 5px;
     height: 60px;
 }
+@media screen and (max-width: 640px) {
+    .title{
+        width: 0;
+        overflow: clip;
+    }
+    ul{
+        width: 100%;
+    }
+}

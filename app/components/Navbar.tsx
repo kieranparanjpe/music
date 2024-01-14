@@ -6,11 +6,11 @@ export default function Navbar()
 {
     return(
         <nav>
-            <h2>Spotify Stats</h2>
+            <h2 className={"title"}>Spotify Stats</h2>
             <ul>
                 <button onClick={() => {window.location='/homepage'}}><li><p>Home</p></li></button>
                 <button onClick={() => {window.location='/stats'}}><li><p>Stats</p></li></button>
-                <button><li><p>Download Playlists</p></li></button>
+                <button onClick={() => {window.location='/downloadsongs'}}><li><p>Download Playlists</p></li></button>
                 {/*<button onClick={() => {location.href='../account'}}><li><p>Account</p></li></button>*/}
 
             </ul>

@@ -38,13 +38,13 @@ export default function ShowCurrentSong()
             <div >
                 <h2>You are currently listening to: </h2>
                 <br/>
-                <div className={"flex justify-items-start items-center"} style={{borderRadius: "20px", borderWidth: "2px", padding: "1rem"}}>
-                    <div className={"aspect-square h-32"}>
-                        <div className={"rounded-full p-0.5 w-full h-full "} style={{borderRadius: "10%", backgroundColor: "var(--foreground-rgb)"}}>
+                <div className={"sm:block flex justify-items-start items-center"} style={{borderRadius: "20px", borderWidth: "2px", padding: "1rem"}}>
+                    <div className={"aspect-square h-32 sm:h-40 sm:mx-auto sm:text-center"}>
+                        <div className={"p-0.5 w-full h-full "} style={{borderRadius: "10%", backgroundColor: "var(--foreground-rgb)"}}>
                             <img className={"w-full h-full"} style={{borderRadius: "10%"}} src={getBiggestImage(currentSong.item.album.images).url}></img>
                         </div>
                     </div>
-                    <h2 className={"p-10"}>{currentSong.item.name} by {SpotifyManager.namesToString(currentSong.item.artists)} on {currentSong.item.album.name}</h2>
+                    <h2 className={"p-10 sm:p-1 sm:mx-auto sm:text-center"}>{currentSong.item.name} by {SpotifyManager.namesToString(currentSong.item.artists)} on {currentSong.item.album.name}</h2>
                 </div>
             </div>
             }

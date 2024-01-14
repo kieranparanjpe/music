@@ -18,6 +18,8 @@ export default async function SongStats({params})
         durationNice = "all time"
 
     const session = await auth();
+    if(!session)
+        redirect("/");
     const topArtists : SpotifyTopArtists = await SpotifyManager.getTopArtists(session.accessToken, duration);
 
 

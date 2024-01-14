@@ -16,11 +16,11 @@ export default async function SongStats({params})
         durationNice = "all time"
 
     const session = await auth();
-    const topSongs : SpotifyTopSongs = await SpotifyManager.getTopSongs(session.accessToken, duration);
-
-
     if(!session)
         redirect("/");
+
+    const topSongs : SpotifyTopSongs = await SpotifyManager.getTopSongs(session.accessToken, duration);
+
     if(!topSongs)
         return (
             <div id={"content"}>
