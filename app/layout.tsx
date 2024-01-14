@@ -5,7 +5,6 @@ import Navbar from "@/app/components/Navbar";
 import {getServerSession} from "next-auth";
 import {AuthProvider} from "@/app/util/SessionHandler";
 import {auth} from "@/app/util/auth";
-import {SpotifyHandler} from "@/app/util/SpotifyHandler";
 
 const inter = Inter({ subsets: ['latin'] })
 

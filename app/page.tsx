@@ -2,7 +2,7 @@ import "./globals.css"
 import "./util/SpotifyHandler"
 import "./components/LogInButton"
 import LogInButton from "@/app/components/LogInButton";
-import {SpotifyHandler} from "@/app/util/SpotifyHandler";
+
 export default async function Home() {
 
   return (

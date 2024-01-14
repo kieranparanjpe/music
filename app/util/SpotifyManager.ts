@@ -1,7 +1,6 @@
 import {SpotifyProfile} from "next-auth/providers/spotify";
 import {SpotifyCurrentlyPlaying} from "@/app/util/Interfaces/SpotifyCurrentlyPlaying";
 import {SpotifyProfile1} from "@/app/util/Interfaces/SpotifyProfile";
-import {SpotifyHandler} from "@/app/util/SpotifyHandler";
 import {SpotifyTopArtists} from "@/app/util/Interfaces/SpotifyTopArtists";
 import {SpotifyTopSongs} from "@/app/util/Interfaces/SpotifyTopSongs";
 import {SpotifyPlaylistTracks} from "@/app/util/Interfaces/SpotifyPlaylistTracks";
@@ -15,7 +14,7 @@ export default class SpotifyManager
         const result = await fetch("https://api.spotify.com/v1/me", {
             method: "GET", headers: {Authorization: `Bearer ${token}`}
         });
-        return await result.json() as SpotifyProfile;
+        return await result.json() as SpotifyProfile1;
     }
 
     static async getCurrentSong(token: string) : Promise<SpotifyCurrentlyPlaying> {
@@ -80,16 +79,6 @@ export default class SpotifyManager
         return await resultA.json() as SpotifyArtist;
     }
 
-    static async getSongDetails(id : string) {
-        const resultB = await fetch(`https://api.spotify.com/v1/audio-features/${id}`, {
-            method: "GET", headers: {Authorization: `Bearer ${SpotifyHandler.accessToken}`}
-        });
-        if(resultB.ok){
-            return await resultB.json();
-        }
-
-        return null;
-    }
 
     /*requires list to have a 'name' property*/
     static namesToString(list : any[]) : string{
