@@ -6,7 +6,7 @@ import TopSongItem from "@/app/stats/songs/[duration]/TopSongItem";
 import {SpotifyTopArtists} from "@/app/util/Interfaces/SpotifyTopArtists";
 import TopArtistItem from "@/app/stats/artists/[duration]/TopArtistItem";
 
-export default async function SongStats({params})
+export default async function SongStats({params} : {params : any})
 {
     const duration = params.duration;
     let durationNice = '';

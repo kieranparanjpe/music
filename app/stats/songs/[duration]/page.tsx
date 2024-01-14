@@ -4,7 +4,7 @@ import SpotifyManager from "@/app/util/SpotifyManager";
 import {SpotifyTopSongs} from "@/app/util/Interfaces/SpotifyTopSongs";
 import TopSongItem from "@/app/stats/songs/[duration]/TopSongItem";
 
-export default async function SongStats({params})
+export default async function SongStats({params} : {params : any})
 {
     const duration = params.duration;
     let durationNice = '';

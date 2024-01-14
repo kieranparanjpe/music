@@ -11,7 +11,7 @@ export default function ShowCurrentSong()
 {
     const {data : session} = useSession();
     const [accessToken, setAccessToken] : [string, any] = useState('');
-    const [currentSong, setSong]  : [null | SpotifyCurrentlyPlaying, any] = useState(null);
+    const [currentSong, setSong]  : any = useState(null);
 
     useEffect(()=>{
         const interval = setInterval(() => {

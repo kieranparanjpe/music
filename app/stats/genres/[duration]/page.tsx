@@ -15,7 +15,7 @@ export interface genreItem{
     img: Image
 }
 
-export default async function SongStats({params})
+export default async function SongStats({params} : {params : any})
 {
     const duration = params.duration;
 
@@ -39,6 +39,8 @@ export default async function SongStats({params})
     }
    // await getTracks();
     async function getTracks(value : Item) {
+        if(!session)
+            return;
         const items = await SpotifyManager.getPlaylistItems(session.accessToken, value.tracks.href);
         items.items.map((value) => {
             value.track.artists.map((value) => {
@@ -67,6 +69,8 @@ export default async function SongStats({params})
         });
     }
     async function getGenres(value: string[]) {
+        if(!session)
+            return;
         const artists = await SpotifyManager.getArtists(session.accessToken, value.join(','));
         artists.artists.map((value) => {
             let img = getBiggestImage(value.images);

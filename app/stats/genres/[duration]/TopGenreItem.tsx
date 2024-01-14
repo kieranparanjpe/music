@@ -7,7 +7,7 @@ import {getBiggestImage} from "@/app/util/Interfaces/SpotifyProfile";
 import {TopArtist} from "@/app/util/Interfaces/SpotifyTopArtists";
 import {genreItem} from "@/app/stats/genres/[duration]/page";
 // @ts-ignore
-export default function TopGenreItem({key, genre, index})
+export default function TopGenreItem({key, genre, index} : {key: number, genre : any, index: number})
 {
     const topGenre : genreItem = genre[1];
     return(

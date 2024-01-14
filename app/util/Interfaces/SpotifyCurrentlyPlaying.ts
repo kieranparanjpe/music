@@ -101,7 +101,7 @@ export interface Artist2 {
     genres: string[]
     href: string
     id: string
-    images: Image2[]
+    images: Image[]
     name: string
     popularity: number
     type: string

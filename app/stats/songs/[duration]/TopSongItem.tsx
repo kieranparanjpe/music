@@ -4,7 +4,7 @@ import {TopSong} from "@/app/util/Interfaces/SpotifyTopSongs";
 import { motion } from "framer-motion"
 import SpotifyManager from "@/app/util/SpotifyManager";
 import {getBiggestImage} from "@/app/util/Interfaces/SpotifyProfile";
-export default function TopSongItem({key, song, index})
+export default function TopSongItem({key, song, index} : {key: number, song : TopSong, index: number})
 {
     const topSong : TopSong = song;
     return(

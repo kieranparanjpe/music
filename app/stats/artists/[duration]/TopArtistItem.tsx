@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 import SpotifyManager from "@/app/util/SpotifyManager";
 import {getBiggestImage} from "@/app/util/Interfaces/SpotifyProfile";
 import {TopArtist} from "@/app/util/Interfaces/SpotifyTopArtists";
-export default function TopArtistItem({key, artist, index})
+export default function TopArtistItem({key, artist, index} : {key: number, artist : TopArtist, index: number})
 {
     const topArtist : TopArtist = artist;
     return(

@@ -14,21 +14,22 @@ const params = {
 }
 const LOGIN_URL = `https://accounts.spotify.com/authorize?${new URLSearchParams(params).toString()}`;
 
-async function refreshAccessToken(token : string)
+async function refreshAccessToken(token : any)
 {
     const params = new URLSearchParams();
     params.append("grant_type", "refresh_token");
     params.append("refresh_token", token.refreshToken);
+    // @ts-ignore
     const response = await fetch('https://accounts.spotify.com/api/token',
         {
             method: "POST",
             headers: {
                 'content-type': 'application/x-www-form-urlencoded',
-                'Authorization': 'Basic ' + (new Buffer.from(process.env.SPOTIFY_ID + ':' + process.env.SPOTIFY_SECRET).toString('base64'))
+                'Authorization': 'Basic ' + (Buffer.from(process.env.SPOTIFY_ID + ':' + process.env.SPOTIFY_SECRET).toString('base64'))
             },
             body: params
         })
-    const data = await response.json();
+    const data : any = await response.json();
     console.log("refresh token: " + token.refreshToken);
     return {
         accessToken: data["access_token"],
@@ -62,12 +63,14 @@ const
                 return token
             }
 
+            // @ts-ignore
             if(Date.now() < token.accessTokenExpires)
                 return token
 
             return refreshAccessToken(token)
         },
         async session({session, token, user}){
+            // @ts-ignore
             session.accessToken = token.accessToken;
             return session
         }

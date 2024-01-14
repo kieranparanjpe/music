@@ -1,6 +1,4 @@
-import {SpotifyHandler} from "@/app/util/SpotifyHandler";
 import {useSearchParams} from "next/navigation";
-import GetUrlParams from "@/app/homepage/GetUrlParams";
 import ShowUserDetails from "@/app/homepage/ShowUserDetails";
 import "../globals.css";
 import ShowCurrentSong from "@/app/homepage/ShowCurrentSong";

@@ -1,4 +1,5 @@
 /**@Deprecated**/
+/*
 export class SpotifyHandler {
 
     static clientId = "11350c577ada4e1a956e4acf008e932a";
@@ -140,4 +141,4 @@ export class SpotifyHandler {
             .replace(/\//g, '_')
             .replace(/=+$/, '');
     }
-}
+}*/
