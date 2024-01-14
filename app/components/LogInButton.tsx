@@ -3,7 +3,7 @@
 import {SpotifyHandler} from "@/app/util/SpotifyHandler";
 import {signIn, useSession, signOut} from "next-auth/react";
 
-export default function LogInButton({scale})
+export default function LogInButton({scale} : {scale : string})
 {
     const {data : session} = useSession();
 

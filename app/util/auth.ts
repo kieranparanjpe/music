@@ -30,7 +30,6 @@ async function refreshAccessToken(token : string)
         })
     const data = await response.json();
     console.log("refresh token: " + token.refreshToken);
-    console.log(data);
     return {
         accessToken: data["access_token"],
         refreshToken: data["refresh_token"] ?? token.refreshToken,
