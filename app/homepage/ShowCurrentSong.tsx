@@ -35,7 +35,8 @@ export default function ShowCurrentSong()
 
     return(
         <div>
-            {(!currentSong || !currentSong.is_playing) ? <h2>You are not listening to anything right now</h2> :
+            {(!currentSong) ? <h2>Could not get your current songs</h2> :
+                !currentSong.is_playing ? <h2>You are not listening to anything right now</h2> :
             <div >
                 <h2>You are currently listening to: </h2>
                 <br/>

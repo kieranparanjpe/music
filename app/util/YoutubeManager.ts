@@ -1,5 +1,7 @@
 import {YoutubeSong} from "@/app/util/Interfaces/Youtube/YoutubeSong";
 
+
+/** Remember to go into dashboard and unrestrict / restrict api key */
 export default class YoutubeManager
 {
     static clientID : string | undefined = "AIzaSyC_PjPQwQeubJ0tQObVghcQG04f2TDYfps";
