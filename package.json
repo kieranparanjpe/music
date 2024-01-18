@@ -9,12 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "ffmpeg": "^0.0.4",
     "framer-motion": "^10.18.0",
     "next": "14.0.4",
     "next-auth": "^4.24.5",
     "node-fetch": "^3.3.2",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "yt-converter": "^2.0.0",
+    "yt-get": "^1.1.2"
   },
   "devDependencies": {
     "@types/node": "^20",

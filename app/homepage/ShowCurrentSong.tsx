@@ -3,9 +3,10 @@
 import {useSession} from "next-auth/react";
 import {useEffect, useState} from "react";
 import SpotifyManager from "@/app/util/SpotifyManager";
-import {SpotifyCurrentlyPlaying} from "@/app/util/Interfaces/SpotifyCurrentlyPlaying";
-import {getBiggestImage} from "@/app/util/Interfaces/SpotifyProfile";
+import {SpotifyCurrentlyPlaying} from "@/app/util/Interfaces/Spotify/SpotifyCurrentlyPlaying";
+import {getBiggestImage} from "@/app/util/Interfaces/Spotify/SpotifyProfile";
 import LogInButton from "@/app/components/LogInButton";
+import SongDownload from "@/app/components/SongDownload";
 
 export default function ShowCurrentSong()
 {
@@ -45,6 +46,7 @@ export default function ShowCurrentSong()
                         </div>
                     </div>
                     <h2 className={"p-10 sm:p-1 sm:mx-auto sm:text-center"}>{currentSong.item.name} by {SpotifyManager.namesToString(currentSong.item.artists)} on {currentSong.item.album.name}</h2>
+                    <SongDownload song={currentSong.item}/>
                 </div>
             </div>
             }

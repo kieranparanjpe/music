@@ -3,7 +3,7 @@ import {redirect} from "next/navigation";
 import {auth} from "@/app/util/auth";
 import Spotify from "next-auth/providers/spotify";
 import SpotifyManager from "@/app/util/SpotifyManager";
-import {getBiggestImage} from "@/app/util/Interfaces/SpotifyProfile";
+import {getBiggestImage} from "@/app/util/Interfaces/Spotify/SpotifyProfile";
 import LogInButton from "@/app/components/LogInButton";
 
 export default async function ShowUserDetails()

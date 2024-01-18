@@ -1,11 +1,11 @@
 import {SpotifyProfile} from "next-auth/providers/spotify";
-import {SpotifyCurrentlyPlaying} from "@/app/util/Interfaces/SpotifyCurrentlyPlaying";
-import {SpotifyProfile1} from "@/app/util/Interfaces/SpotifyProfile";
-import {SpotifyTopArtists} from "@/app/util/Interfaces/SpotifyTopArtists";
-import {SpotifyTopSongs} from "@/app/util/Interfaces/SpotifyTopSongs";
-import {SpotifyPlaylistTracks} from "@/app/util/Interfaces/SpotifyPlaylistTracks";
-import {SpotifyPlaylists} from "@/app/util/Interfaces/SpotifyPlaylists";
-import {SpotifyArtist} from "@/app/util/Interfaces/SpotifyArtist";
+import {SpotifyCurrentlyPlaying} from "@/app/util/Interfaces/Spotify/SpotifyCurrentlyPlaying";
+import {SpotifyProfile1} from "@/app/util/Interfaces/Spotify/SpotifyProfile";
+import {SpotifyTopArtists} from "@/app/util/Interfaces/Spotify/SpotifyTopArtists";
+import {SpotifyTopSongs} from "@/app/util/Interfaces/Spotify/SpotifyTopSongs";
+import {SpotifyPlaylistTracks} from "@/app/util/Interfaces/Spotify/SpotifyPlaylistTracks";
+import {SpotifyPlaylists} from "@/app/util/Interfaces/Spotify/SpotifyPlaylists";
+import {SpotifyArtist} from "@/app/util/Interfaces/Spotify/SpotifyArtist";
 
 export default class SpotifyManager
 {
@@ -61,12 +61,12 @@ export default class SpotifyManager
     }
 
     static async getPlaylistItems(token: string, href: string) : Promise<SpotifyPlaylistTracks> {
-        const params = new URLSearchParams();
         const resultA = await fetch(href, {
             method: "GET", headers: {Authorization: `Bearer ${token}`}
         });
 
-        return await resultA.json() as SpotifyPlaylistTracks;
+        const tracks : SpotifyPlaylistTracks = await resultA.json() as SpotifyPlaylistTracks;
+        return tracks;
     }
 
     static async getArtists(token: string, ids: string) : Promise<SpotifyArtist> {

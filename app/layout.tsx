@@ -5,6 +5,8 @@ import Navbar from "@/app/components/Navbar";
 import {getServerSession} from "next-auth";
 import {AuthProvider} from "@/app/util/SessionHandler";
 import {auth} from "@/app/util/auth";
+import SpotifyManager from "@/app/util/SpotifyManager";
+import YoutubeManager from "@/app/util/YoutubeManager";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,6 +21,7 @@ export default async function RootLayout({
   children: React.ReactNode
 }) {
 
+    console.log('----------------------New Refresh-------------------');
     const session = await getServerSession();
     return (
     <html lang="en">

@@ -1,8 +1,8 @@
 import {auth} from "@/app/util/auth";
 import {redirect} from "next/navigation";
 import SpotifyManager from "@/app/util/SpotifyManager";
-import {SpotifyTopSongs} from "@/app/util/Interfaces/SpotifyTopSongs";
-import TopSongItem from "@/app/stats/songs/[duration]/TopSongItem";
+import {SpotifyTopSongs} from "@/app/util/Interfaces/Spotify/SpotifyTopSongs";
+import SongItem from "@/app/components/SongItem";
 
 export default async function SongStats({params} : {params : any})
 {
@@ -32,7 +32,7 @@ export default async function SongStats({params} : {params : any})
         <div id={"content"}>
             <h1>Your top songs of {durationNice}:</h1>
             {topSongs.items.map((value, index)=>{
-                return <TopSongItem key={index} song={value} index={index + 1}/>
+                return <SongItem key={index} song={value} index={index + 1}/>
             })}
         </div>
     )
