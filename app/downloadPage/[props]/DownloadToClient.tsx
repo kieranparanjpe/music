@@ -17,7 +17,7 @@ export default function DownloadToClient({title, mp3, redirect} : {title: string
         // Create a download link and trigger the click event
         const link = document.createElement('a');
         link.href = window.URL.createObjectURL(blob);
-        link.download = `${title}.txt`;
+        link.download = `${title}.mp3`;
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
