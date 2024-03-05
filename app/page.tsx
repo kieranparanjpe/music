@@ -19,6 +19,15 @@ export default async function Home() {
        <div className={"flex justify-center"}>
             <LogInButton scale={"inherit"}/>
        </div>
+       <br/>
+       <br/>
+       <div className={"flex justify-center"}>
+           <p>please note that spotify restricts this app to verified users only.</p>
+       </div>
+       <div className={"flex justify-center"}>
+        <p>email kieranbellum@gmail.com with subject line STATSAPP to be added</p>
+       </div>
+
    </div>
   )
 }
