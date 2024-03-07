@@ -25,7 +25,7 @@ export default class SpotifyManager
         return await resultA.json() as SpotifyCurrentlyPlaying;
     }
 
-    static async getTopArtists(token: string, duration: string) : Promise<SpotifyTopArtists> | null {
+    static async getTopArtists(token: string, duration: string) : Promise<SpotifyTopArtists | null> {
         const params = new URLSearchParams();
         params.append("time_range", duration);
         params.append("limit", "50");
@@ -40,7 +40,7 @@ export default class SpotifyManager
         return await resultA.json() as SpotifyTopArtists;
     }
 
-    static async getTopSongs(token: string, duration: string) : Promise<SpotifyTopSongs> | null{
+    static async getTopSongs(token: string, duration: string) : Promise<SpotifyTopSongs | null>{
         const params = new URLSearchParams();
         params.append("time_range", duration);
         params.append("limit", "50");
