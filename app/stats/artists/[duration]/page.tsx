@@ -20,7 +20,7 @@ export default async function SongStats({params} : {params : any})
     const session = await auth();
     if(!session)
         redirect("/");
-    const topArtists : SpotifyTopArtists = await SpotifyManager.getTopArtists(session.accessToken, duration);
+    const topArtists : SpotifyTopArtists | null = await SpotifyManager.getTopArtists(session.accessToken, duration);
 
 
     if(!session)
