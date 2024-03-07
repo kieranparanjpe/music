@@ -25,7 +25,7 @@ export default class SpotifyManager
         return await resultA.json() as SpotifyCurrentlyPlaying;
     }
 
-    static async getTopArtists(token: string, duration: string) : Promise<SpotifyTopArtists> {
+    static async getTopArtists(token: string, duration: string) : Promise<SpotifyTopArtists> | null {
         const params = new URLSearchParams();
         params.append("time_range", duration);
         params.append("limit", "50");
@@ -34,10 +34,13 @@ export default class SpotifyManager
             method: "GET", headers: {Authorization: `Bearer ${token}`}
         });
 
+        if(!resultA.ok)
+            return null;
+
         return await resultA.json() as SpotifyTopArtists;
     }
 
-    static async getTopSongs(token: string, duration: string) : Promise<SpotifyTopSongs> {
+    static async getTopSongs(token: string, duration: string) : Promise<SpotifyTopSongs> | null{
         const params = new URLSearchParams();
         params.append("time_range", duration);
         params.append("limit", "50");
@@ -45,6 +48,9 @@ export default class SpotifyManager
         const resultA = await fetch(`https://api.spotify.com/v1/me/top/tracks?${params.toString()}`, {
             method: "GET", headers: {Authorization: `Bearer ${token}`}
         });
+
+        if(!resultA.ok)
+            return null;
 
         return await resultA.json() as SpotifyTopSongs;
     }
@@ -55,6 +61,10 @@ export default class SpotifyManager
         params.append("offset", "0");
         const resultA = await fetch(`https://api.spotify.com/v1/me/playlists?${params.toString()}`, {
             method: "GET", headers: {Authorization: `Bearer ${token}`}
+        });
+
+        resultA.headers.forEach((value, key)=>{
+            console.log(key + ": " + value);
         });
 
         return await resultA.json() as SpotifyPlaylists;
