@@ -6,11 +6,11 @@ const scopes = [
     "user-read-private",
     "user-read-email",
     "user-read-currently-playing",
-    "user-read-top"
+    "user-top-read"
 ].join(",");
 
 const params = {
-    scopes: scopes
+    scope: scopes
 }
 const LOGIN_URL = `https://accounts.spotify.com/authorize?${new URLSearchParams(params).toString()}`;
 
